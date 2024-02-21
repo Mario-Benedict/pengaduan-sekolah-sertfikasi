@@ -22,7 +22,13 @@ use App\Http\Controllers\AspirasiController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
+
+Route::get('/search', [InputAspirasiController::class, 'search'])->name('search');
 
 Auth::routes();
 

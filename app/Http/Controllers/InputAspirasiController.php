@@ -157,4 +157,8 @@ class InputAspirasiController extends Controller
 
         return $pdf->download('laporan.pdf');
     }
+
+    public function search() {
+
+    }
 }
