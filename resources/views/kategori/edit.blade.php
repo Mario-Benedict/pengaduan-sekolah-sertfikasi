@@ -31,11 +31,10 @@
         </div>
 
         <div class="text-center">
-          <button type="submit" class="btn btn-success">Tambah</button>
+          <button type="submit" class="btn btn-success">Ubah</button>
           <button type="reset" class="btn btn-secondary">Batal</button>
         </div>
       </form>
-
     </div>
 </div>
 @endsection

@@ -31,14 +31,21 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
+        $allowedKelas = ['X AKL', 'XI AKL', 'XII AKL',
+                        'X MPLB', 'XI MPLB', 'XII MPLB',
+                        'X PPLG 1', 'XI PPLG 1', 'XII RPL 1',
+                        'X PPLG 2', 'XI PPLG 2', 'XII RPL 2'];
+
         $request->validate([
-            'nisn' => ['required', 'string', 'digits:10', 'unique:siswas,nisn'],
-            'kelas' => ['required', 'string', 'max:10'],
+            'nis' => ['required', 'numeric', 'digits:10', 'unique:siswas,nis'],
+            'kelas' => ['required', 'string', 'max:10', 'in:' . implode(',', $allowedKelas)],
         ], [
-            'nisn.required' => 'NISN harus diisi',
-            'nisn.digits' => 'NISN harus 10 digit',
-            'nisn.unique' => 'NISN sudah terdaftar',
+            'nis.required' => 'nis harus diisi',
+            'nis.numeric' => 'nis harus berupa angka',
+            'nis.digits' => 'nis harus 10 digit',
+            'nis.unique' => 'nis sudah terdaftar',
             'kelas.required' => 'Kelas harus diisi',
+            'kelas.in' => 'Kelas tidak valid',
         ]);
 
         Siswa::create($request->all());
@@ -69,14 +76,21 @@ class SiswaController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $allowedKelas = ['X AKL', 'XI AKL', 'XII AKL',
+                        'X MPLB', 'XI MPLB', 'XII MPLB',
+                        'X PPLG 1', 'XI PPLG 1i', 'XII RPL 1',
+                        'X PPLG 2', 'XI PPLG 2', 'XII RPL 2'];
+
         $request->validate([
-            'nisn' => ['required', 'string', 'digits:10', 'unique:siswas,nisn,' . $id . ',nisn'],
-            'kelas' => ['required', 'string', 'max:10'],
+            'nis' => ['required', 'numeric', 'digits:10', 'unique:siswas,nis,' . $id . ',nis'],
+            'kelas' => ['required', 'string', 'max:10', 'in:' . implode(',', $allowedKelas)],
         ], [
-            'nisn.required' => 'NISN harus diisi',
-            'nisn.digits' => 'NISN harus 10 digit',
-            'nisn.unique' => 'NISN sudah terdaftar',
+            'nis.required' => 'nis harus diisi',
+            'nis.numeric' => 'nis harus berupa angka',
+            'nis.digits' => 'nis harus 10 digit',
+            'nis.unique' => 'nis sudah terdaftar',
             'kelas.required' => 'Kelas harus diisi',
+            'kelas.in' => 'Kelas tidak valid',
         ]);
 
         Siswa::find($id)->update($request->all());

@@ -9,7 +9,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <link href="{{ asset('admin/assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('assets/logo.png') }}" rel="icon">
   <link href="{{ asset('admin/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -39,7 +39,7 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="{{ asset('assets/logo.png') }}" alt="">
+                  <img src="{{ asset('assets/logo.png') }}" alt="logo sekolah">
                   <span class="d-none d-lg-block text-success">Pengaduan Sekolah</span>
                 </a>
               </div>

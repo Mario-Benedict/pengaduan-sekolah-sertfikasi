@@ -9,7 +9,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <link href="{{ asset('admin/assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('assets/logo.png') }}" rel="icon">
   <link href="{{ asset('admin/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <link href="https://fonts.gstatic.com" rel="preconnect">

@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class InputAspirasi extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nis',
+        'id_kategori',
+        'lokasi',
+        'foto',
+        'ket'
+    ];
 }

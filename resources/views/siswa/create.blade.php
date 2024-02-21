@@ -19,10 +19,10 @@
       <form class="row g-3" method="POST" action="{{ route('siswa.store') }}">
         @csrf
         <div class="col-12">
-          <label for="nisn" class="form-label">NISN</label>
-          <input type="text" class="form-control @error('nisn') is-invalid @enderror" id="nisn" name="nisn" value="{{ old('nisn') }}">
+          <label for="nis" class="form-label">NIS</label>
+          <input type="text" class="form-control @error('nis') is-invalid @enderror" id="nis" name="nis" value="{{ old('nis') }}">
 
-          @error('nisn')
+          @error('nis')
               <span class="invalid-feedback">
                     <strong>{{ $message }}</strong>
               </span>

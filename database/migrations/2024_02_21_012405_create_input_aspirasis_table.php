@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('input_aspirasis', function (Blueprint $table) {
             $table->id('id_pelaporan');
-            $table->string('nisn', 10);
+            $table->string('nis', 10);
             $table->unsignedBigInteger('id_kategori');
             $table->string('lokasi', 50);
+            $table->string('foto', 50);
             $table->string('ket', 50);
             $table->timestamps();
 
-            $table->foreign('nisn')->references('nisn')->on('siswas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('nis')->references('nis')->on('siswas')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('id_kategori')->references('id_kategori')->on('kategoris')->onUpdate('cascade')->onDelete('cascade');
         });
     }

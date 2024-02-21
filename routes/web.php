@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\InputAspirasiController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,4 +30,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware('auth')->group(function () {
     Route::resource('siswa', SiswaController::class);
     Route::resource('kategori', KategoriController::class);
+
+    Route::get('/inputaspirasi', [InputAspirasiController::class, 'index'])->name('inputaspirasi.index');
+    Route::get('inputaspirasi/{id}', [InputAspirasiController::class, 'show'])->name('inputaspirasi.show');
 });
+
+Route::post('/inputaspirasi/store', [InputAspirasiController::class, 'store'])->name('inputaspirasi.store');
+

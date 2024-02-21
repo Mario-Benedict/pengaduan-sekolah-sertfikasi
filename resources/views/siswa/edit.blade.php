@@ -17,14 +17,14 @@
     <div class="card-body">
       <h5 class="card-title text-success">Tambah Data Siswa</h5>
 
-      <form class="row g-3" method="POST" action="{{ route('siswa.update', $student->nisn) }}">
+      <form class="row g-3" method="POST" action="{{ route('siswa.update', $student->nis) }}">
         @csrf
         @method('PUT')
         <div class="col-12">
-          <label for="nisn" class="form-label">NISN</label>
-          <input type="text" class="form-control @error('nisn') is-invalid @enderror" id="nisn" name="nisn" value="{{ $student->nisn }}">
+          <label for="nis" class="form-label">NIS</label>
+          <input type="text" class="form-control @error('nis') is-invalid @enderror" id="nis" name="nis" value="{{ $student->nis }}">
 
-          @error('nisn')
+          @error('nis')
               <span class="invalid-feedback">
                     <strong>{{ $message }}</strong>
               </span>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="text-center">
-          <button type="submit" class="btn btn-success">Tambah</button>
+          <button type="submit" class="btn btn-success">Ubah</button>
           <button type="reset" class="btn btn-secondary">Batal</button>
         </div>
       </form>
