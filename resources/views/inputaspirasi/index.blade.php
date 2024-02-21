@@ -21,6 +21,28 @@
             </a>
         </div>
 
+        <form>
+            <div class="row g-3 py-3 align-items-center">
+                <div class="col-12">
+                    <input type="search" name="search" class="form-control" placeholder="Cari...">
+                </div>
+
+                <div class="col-md-6">
+                    <span>From</span>
+                    <input type="date" class="form-control" name="from">
+                </div>
+
+                <div class="col-md-6">
+                    <span>To</span>
+                    <input type="date" class="form-control" name="to">
+                </div>
+
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-success">Filter</button>
+                </div>
+            </div>
+        </form>
+
         <table class="table table-striped text-center">
         <thead>
             <tr>

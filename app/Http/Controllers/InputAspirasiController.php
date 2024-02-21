@@ -9,17 +9,41 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Kategori;
 use App\Models\Siswa;
 
-use Barryvdh\DomPDF\Facade\Pdf;
-
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class InputAspirasiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $inputaspirasis = InputAspirasi::with('kategori')->paginate(10);
+        $fromDate = $request->input('from');
+        $toDate = $request->input('to');
+
+        $keyword = $request->input('search');
+
+        $query = InputAspirasi::query();
+
+        if ($keyword) {
+            $query->with('kategori')
+            ->where(function ($q) use ($keyword) {
+                $q->where('lokasi','like','%'. $keyword .'%')
+                ->orWhereHas('siswa', function ($q) use ($keyword) {
+                    $q->where('nis','like','%'. $keyword . '%');
+                })
+                ->orWhereHas('kategori', function ($q) use ($keyword) {
+                    $q->where('ket_kategori','like','%'. $keyword . '%');
+                })
+                ->orWhere('ket', 'like', '%' . $keyword . '%');
+            });
+        }
+
+        if ($fromDate && $toDate) {
+            $query->whereBetween('created_at', [$fromDate, $toDate]);
+        }
+
+        $inputaspirasis = $query->paginate(10);
 
         return view('inputaspirasi.index', compact('inputaspirasis'));
     }
@@ -127,7 +151,9 @@ class InputAspirasiController extends Controller
     public function cetak() {
         $inputaspirasis = InputAspirasi::with('kategori', 'aspirasi')->get();
 
-        $pdf = Pdf::loadView('cetak', compact('inputaspirasis'));
+        // return view('cetak', compact('inputaspirasis'));
+
+        $pdf = PDF::loadView('cetak', compact('inputaspirasis'));
 
         return $pdf->download('laporan.pdf');
     }
