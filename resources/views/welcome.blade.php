@@ -653,7 +653,7 @@
                         <select name="kategori" id="kategori" class="form-select @error('kategori') is-invalid @enderror">
                             <option selected value="">-- Pilih Kategori --</option>
                             @foreach (\App\Models\Kategori::get() as $category)
-                                <option value="{{ $category->id_kategori }}" {{ old('kategori') === $category->id_kategori ? 'selected' : '' }}>{{ $category->ket_kategori }}</option>
+                                <option value="{{ $category->id_kategori }}" {{ old('kategori') == $category->id_kategori ? 'selected' : '' }}>{{ $category->ket_kategori }}</option>
                             @endforeach
                         </select>
 

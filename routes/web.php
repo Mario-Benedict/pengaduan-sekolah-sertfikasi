@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\InputAspirasiController;
+use App\Http\Controllers\AspirasiController;
 
 
 /*
@@ -33,6 +34,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/inputaspirasi', [InputAspirasiController::class, 'index'])->name('inputaspirasi.index');
     Route::get('inputaspirasi/{id}', [InputAspirasiController::class, 'show'])->name('inputaspirasi.show');
+
+    Route::get('/aspirasi/{id}/create', [AspirasiController::class, 'create'])->name('aspirasi.create');
+    Route::post('/aspirasi/{id}', [AspirasiController::class, 'store'])->name('aspirasi.store');
 });
 
 Route::post('/inputaspirasi/store', [InputAspirasiController::class, 'store'])->name('inputaspirasi.store');

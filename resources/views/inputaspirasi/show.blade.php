@@ -12,6 +12,12 @@
     </nav>
 </div>
 
+@if(Session::has('success'))
+    <div class="alert alert-success">
+        {{ Session::get('success') }}
+    </div>
+@endif
+
 <div class="card">
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
@@ -61,7 +67,7 @@
                     <h5 class="mt-3 col">Status</h5>
 
                     @if(count($inputaspirasi->aspirasi) > 0 )
-                        <p class="col">{{ Str::ucfirst(App\Models\Aspirasi::where('id_input_aspirasi', $inputaspirasi->id)->latest()->first()->status) }}</p>
+                        <p class="col">{{ Str::ucfirst(App\Models\Aspirasi::where('id_pelaporan', $inputaspirasi->id_pelaporan)->latest()->first()->status) }}</p>
                     @else
                         <p class="col">Menunggu</p>
                     @endif
@@ -80,7 +86,7 @@
                 </div>
             @endif
 
-            <a href="" class="mt-3">
+            <a href="{{ route('aspirasi.create', $inputaspirasi->id_pelaporan) }}" class="mt-3">
                 <button class="btn btn-primary">Buat Tanggapan</button>
             </a>
         </div>
