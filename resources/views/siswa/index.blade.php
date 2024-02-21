@@ -83,6 +83,7 @@
             @endforelse
         </tbody>
         </table>
+        {{ $students->links() }}
     </div>
 </div>
 @endsection

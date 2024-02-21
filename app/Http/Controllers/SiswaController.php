@@ -13,7 +13,7 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $students = Siswa::all();
+        $students = Siswa::paginate(10);
 
         return view('siswa.index', compact('students'));
     }

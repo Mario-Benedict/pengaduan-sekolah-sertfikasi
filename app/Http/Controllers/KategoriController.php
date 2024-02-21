@@ -13,7 +13,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $categories = Kategori::all();
+        $categories = Kategori::paginate(10);
 
         return view('kategori.index', compact('categories'));
     }
@@ -32,7 +32,10 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'ket_kategori' => ['required', 'string', 'max:30']
+            'ket_kategori' => ['required', 'string', 'max:30', 'unique:kategoris,ket_kategori']
+        ], [
+            'ket_kategori.required' => 'Nama kategori harus diisi',
+            'ket_kategori.unique' => 'Nama kategori sudah terdaftar'
         ]);
 
         Kategori::create($request->all());
@@ -64,7 +67,11 @@ class KategoriController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'ket_kategori' => ['required', 'string', 'max:30']
+            'ket_kategori' => ['required', 'string', 'max:30', 'unique:kategoris,ket_kategori,' . $id, 'not_in:0']
+        ], [
+            'ket_kategori.required' => 'Nama kategori harus diisi',
+            'ket_kategori.unique' => 'Nama kategori sudah terdaftar',
+            'ket_kategori.not_in' => 'Nama kategori harus diisi'
         ]);
 
         Kategori::find($id)->update($request->all());

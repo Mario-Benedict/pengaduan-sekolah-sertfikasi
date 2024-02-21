@@ -80,8 +80,9 @@
                     <td colspan="3" class="text-center">Tidak ada data kategori yang ditemukan</td>
                 </tr>
             @endforelse
-        </tbody>
+            </tbody>
         </table>
+        {{ $categories->links() }}
     </div>
 </div>
 @endsection
