@@ -52,7 +52,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="{{ route('profile') }}">Profil</a></li>
-          <li><a href="" class="nav-link scrollto" href="{{ route('search') }}">Cari</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('search') }}">Cari</a></li>
           <li><a class="nav-link scrollto" href="/#pengaduan">Pengaduan</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle d-none"></i>
@@ -61,7 +61,9 @@
       <div class="grid column-gap-3">
             @guest
                 <a class="btn-getstarted g-col-6" href="{{ route('login') }}">Login</a>
-                <a class="g-col-6" href="{{ route('register') }}">Register</a>
+                @if(Route::has('register'))
+                    <a class="g-col-6" href="{{ route('register') }}">Register</a>
+                @endif
             @endguest
 
             @auth

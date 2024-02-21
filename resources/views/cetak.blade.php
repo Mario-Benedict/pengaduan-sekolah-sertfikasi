@@ -54,7 +54,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6" class="text-center">{{ __('Tidak ada pengaduan') }}</td>
+                    <td colspan="7" class="text-center">Tidak ada data pengaduan yang ditemukan</td>
                 </tr>
             @endforelse
         </tbody>

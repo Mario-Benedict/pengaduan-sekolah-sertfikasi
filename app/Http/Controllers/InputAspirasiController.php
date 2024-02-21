@@ -158,7 +158,20 @@ class InputAspirasiController extends Controller
         return $pdf->download('laporan.pdf');
     }
 
-    public function search() {
+    public function search(Request $request) {
+        $keyword = $request->input('search');
 
+        $inputaspirasis = InputAspirasi::with('kategori', 'aspirasi')
+            ->where('lokasi', 'like', '%'.$keyword.'%')
+            ->orWhereHas('siswa', function ($query) use ($keyword) {
+                $query->where('nis', 'like', '%'.$keyword.'%');
+            })
+            ->orWhereHas('kategori', function ($query) use ($keyword) {
+                $query->where('ket_kategori', 'like', '%'.$keyword.'%');
+            })
+            ->orWhere('ket', 'like', '%'.$keyword.'%')
+            ->get();
+
+        return view('search', compact('inputaspirasis'));
     }
 }

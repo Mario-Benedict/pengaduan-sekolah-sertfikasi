@@ -90,7 +90,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8" class="text-center">Tidak ada data siswa yang ditemukan</td>
+                    <td colspan="8" class="text-center">Tidak ada data pengaduan yang ditemukan</td>
                 </tr>
             @endforelse
         </tbody>

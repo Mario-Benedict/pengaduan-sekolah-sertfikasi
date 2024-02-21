@@ -91,9 +91,11 @@
                       <button class="btn btn-success w-100" type="submit">Login</button>
                     </div>
 
-                    <div class="col-12">
-                      <p class="small mb-0">Tidak punya akun? <a href="{{ route('register') }}">Buat akun</a></p>
-                    </div>
+                    @if (Route::has('register'))
+                        <div class="col-12">
+                        <p class="small mb-0">Tidak punya akun? <a href="{{ route('register') }}">Buat akun</a></p>
+                        </div>
+                    @endif
                   </form>
 
                 </div>
