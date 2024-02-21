@@ -12,4 +12,9 @@ class Kategori extends Model
     protected $primaryKey = 'id_kategori';
 
     protected $fillable = ['ket_kategori'];
+
+    public function inputaspirasi()
+    {
+        return $this->hasMany(InputAspirasi::class, 'id_kategori', 'id_kategori');
+    }
 }

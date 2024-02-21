@@ -17,7 +17,9 @@ class InputAspirasiController extends Controller
      */
     public function index()
     {
-        //
+        $inputaspirasis = InputAspirasi::with('kategori')->paginate(10);
+
+        return view('inputaspirasi.index', compact('inputaspirasis'));
     }
 
     /**
@@ -91,7 +93,9 @@ class InputAspirasiController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $inputaspirasi = InputAspirasi::with('kategori', 'siswa', 'aspirasi')->find($id);
+
+        return view('inputaspirasi.show', compact('inputaspirasi'));
     }
 
     /**

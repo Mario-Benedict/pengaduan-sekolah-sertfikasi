@@ -12,4 +12,9 @@ class Siswa extends Model
     protected $primaryKey = 'nis';
 
     protected $fillable = ['nis', 'kelas'];
+
+    public function inputaspirasi()
+    {
+        return $this->hasMany(InputAspirasi::class, 'nis', 'nis');
+    }
 }
