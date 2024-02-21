@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Kategori;
 use App\Models\Siswa;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class InputAspirasiController extends Controller
 {
@@ -120,5 +122,13 @@ class InputAspirasiController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function cetak() {
+        $inputaspirasis = InputAspirasi::with('kategori', 'aspirasi')->get();
+
+        $pdf = Pdf::loadView('cetak', compact('inputaspirasis'));
+
+        return $pdf->download('laporan.pdf');
     }
 }

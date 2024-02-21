@@ -16,7 +16,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <h1 class="card-title text-success">Input Aspirasi</h1>
 
-            <a href="{">
+            <a href="{{ route('cetak') }}">
                 <button type="button" class="btn btn-success">Cetak</button>
             </a>
         </div>

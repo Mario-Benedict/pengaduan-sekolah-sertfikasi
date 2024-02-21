@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/aspirasi/{id}/create', [AspirasiController::class, 'create'])->name('aspirasi.create');
     Route::post('/aspirasi/{id}', [AspirasiController::class, 'store'])->name('aspirasi.store');
+
+    Route::get('/cetak', [InputAspirasiController::class, 'cetak'])->name('cetak');
 });
 
 Route::post('/inputaspirasi/store', [InputAspirasiController::class, 'store'])->name('inputaspirasi.store');
