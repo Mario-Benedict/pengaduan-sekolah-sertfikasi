@@ -15,6 +15,10 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
             <h1 class="card-title text-success">Input Aspirasi</h1>
+
+            <a href="{">
+                <button type="button" class="btn btn-success">Cetak</button>
+            </a>
         </div>
 
         <table class="table table-striped text-center">
