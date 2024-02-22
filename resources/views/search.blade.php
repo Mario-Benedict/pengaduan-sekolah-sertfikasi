@@ -68,7 +68,7 @@
             @endguest
 
             @auth
-                <a href="#pengaduan" class="btn-getstarted scrollto">Berikan Aspirasi</a>
+                <a href="/#pengaduan" class="btn-getstarted scrollto">Berikan Aspirasi</a>
             @endauth
       </div>
 
@@ -80,7 +80,7 @@
       <h2>Selamat Datang Di Website <span>Pengaduan Sekolah</span></h2>
       <p>Berikan aspirasimu untuk membangun sekolahmu</p>
       <div class="d-flex">
-        <a href="#pengaduan" class="btn-get-started scrollto">Berikan Aspirasi</a>
+        <a href="/#pengaduan" class="btn-get-started scrollto">Berikan Aspirasi</a>
       </div>
     </div>
   </section>

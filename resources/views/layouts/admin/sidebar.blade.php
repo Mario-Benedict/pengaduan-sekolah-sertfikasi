@@ -3,8 +3,8 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="{{ route('home') }}">
-          <i class="bi bi-grid"></i>
+        <a class="nav-link bg-success text-white" href="{{ route('home') }}"  style="--bs-bg-opacity: .75">
+          <i class="bi bi-grid text-white"></i>
           <span>Dashboard</span>
         </a>
       </li>
@@ -12,22 +12,22 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('siswa.index') }}">
-          <i class="bi bi-person"></i>
+        <a class="bg-success nav-link collapsed text-white" href="{{ route('siswa.index') }}" style="--bs-bg-opacity: .75">
+          <i class="bi bi-person text-white"></i>
           <span>Siswa</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('kategori.index') }}">
-          <i class="bi bi-question-circle"></i>
+        <a class="nav-link collapsed bg-success text-white" href="{{ route('kategori.index') }}"  style="--bs-bg-opacity: .75">
+          <i class="bi bi-question-circle text-white"></i>
           <span>Kategori</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('inputaspirasi.index') }}">
-          <i class="bi bi-envelope"></i>
+        <a class="nav-link collapsed bg-success text-white" href="{{ route('inputaspirasi.index') }}"  style="--bs-bg-opacity: .75">
+          <i class="bi bi-envelope text-white"></i>
           <span>Input Aspirasi</span>
         </a>
       </li>

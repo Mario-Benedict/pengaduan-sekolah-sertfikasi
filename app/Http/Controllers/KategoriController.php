@@ -67,7 +67,7 @@ class KategoriController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'ket_kategori' => ['required', 'string', 'max:30', 'unique:kategoris,ket_kategori,' . $id, 'not_in:0']
+            'ket_kategori' => ['required', 'string', 'max:30', 'unique:kategoris,ket_kategori,' . $id . ',id_kategori', 'not_in:0']
         ], [
             'ket_kategori.required' => 'Nama kategori harus diisi',
             'ket_kategori.unique' => 'Nama kategori sudah terdaftar',
