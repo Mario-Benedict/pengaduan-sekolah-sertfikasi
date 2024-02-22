@@ -52,6 +52,7 @@
                 <th scope="col">Lokasi</th>
                 <th scope="col">Keterangan</th>
                 <th scope="col">Foto</th>
+                <th scope="col">Tanggal Pengaduan</th>
                 <th scope="col">Status</th>
                 <th scope="col">Aksi</th>
             </tr>
@@ -66,6 +67,9 @@
                     <td>{{ Str::limit($inputaspirasi->ket, 30, '...') }}</td>
                     <td>
                         <img src="{{ asset('pengaduan/' . $inputaspirasi->foto) }}" alt="{{ $inputaspirasi->foto }}" width="100px">
+                    </td>
+                    <td>
+                        {{ \Carbon\Carbon::parse($inputaspirasi->created_at)->isoFormat('dddd, D MMMM Y') }}
                     </td>
                     <td>
                         @if(count(\App\Models\Aspirasi::where('id_pelaporan', $inputaspirasi->id_pelaporan)->get()) > 0)
@@ -90,7 +94,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8" class="text-center">Tidak ada data pengaduan yang ditemukan</td>
+                    <td colspan="9" class="text-center">Tidak ada data pengaduan yang ditemukan</td>
                 </tr>
             @endforelse
         </tbody>

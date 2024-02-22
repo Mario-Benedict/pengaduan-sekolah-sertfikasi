@@ -9,16 +9,13 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
   <link href="{{ asset('assets/logo.png') }}" rel="icon">
   <link href="{{ asset('template/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="{{ asset('template/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('template/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
   <link href="{{ asset('template/assets/vendor/aos/aos.css') }}" rel="stylesheet">
@@ -38,13 +35,10 @@
 </head>
 
 <body>
-
-  <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top" data-scrollto-offset="0">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
       <a href="{{ route('home') }}" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="{{ asset('assets/logo.png') }}" alt="logo sekolah">
         <h2>Pengaduan Sekolah</h2>
       </a>
@@ -56,7 +50,7 @@
           <li><a class="nav-link scrollto" href="/#pengaduan">Pengaduan</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle d-none"></i>
-      </nav><!-- .navbar -->
+      </nav>
 
       <div class="grid column-gap-3">
             @guest
@@ -73,7 +67,7 @@
       </div>
 
     </div>
-  </header><!-- End Header -->
+  </header>
 
   <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
@@ -111,6 +105,7 @@
                   <th scope="col">Lokasi</th>
                   <th scope="col">Keterangan</th>
                   <th scope="col">Foto</th>
+                  <th scope="col">Tanggal Pengaduan</th>
                   <th scope="col">Status</th>
                   <th scope="col">Aksi</th>
                 </tr>
@@ -126,6 +121,9 @@
                         <td>{{ Str::limit($input->ket, 30, '...') }}</td>
                         <td>
                             <img src="{{ asset('pengaduan/' . $input->foto) }}" alt="{{ $input->foto }}" width="100">
+                        </td>
+                        <td>
+                            {{ \Carbon\Carbon::parse($input->created_at)->isoFormat('dddd, D MMMM Y') }}
                         </td>
                         <td>
                             @if(count(\App\Models\Aspirasi::where('id_pelaporan', $input->id_pelaporan)->get()) > 0)

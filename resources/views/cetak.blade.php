@@ -19,6 +19,7 @@
             <tr>
                 <th class="text-center">No</th>
                 <th class="text-center">Foto</th>
+                <th class="text-center">Tanggal Pengaduan</th>
                 <th class="text-center">NIS</th>
                 <th class="text-center">Kategori</th>
                 <th class="text-center">Lokasi</th>
@@ -33,6 +34,9 @@
                     <td scope="row" class="text-center">{{ $key + 1 }}</td>
                     <td scope='col' class="text-center">
                         <img src="{{ public_path('pengaduan/' . $input->foto) }}" alt="{{ $input->foto }}" width="100px">
+                    </td>
+                    <td>
+                        {{ \Carbon\Carbon::parse($input->created_at)->isoFormat('dddd, D MMMM Y') }}
                     </td>
                     <td class="text-center">{{ $input->nis }}</td>
                     <td class="text-center">{{ $input->kategori->ket_kategori }}</td>
@@ -54,7 +58,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="7" class="text-center">Tidak ada data pengaduan yang ditemukan</td>
+                    <td colspan="8" class="text-center">Tidak ada data pengaduan yang ditemukan</td>
                 </tr>
             @endforelse
         </tbody>

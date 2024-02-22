@@ -153,7 +153,7 @@ class InputAspirasiController extends Controller
 
         // return view('cetak', compact('inputaspirasis'));
 
-        $pdf = PDF::loadView('cetak', compact('inputaspirasis'));
+        $pdf = PDF::loadView('cetak', compact('inputaspirasis'))->setPaper('a4', 'landscape');
 
         return $pdf->download('laporan.pdf');
     }
